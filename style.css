@@ -132,13 +132,14 @@ body{
     justify-content: space-between;
 }
 .app-action {
-    border-radius: 10px;
-    width: 210px;
-    padding: 10px;
-    margin-bottom: 10px;
-    background-color: #813fb89c;
-    color: #fafafa; 
-    font-size: 15px; 
+
+  border-radius: 10px;
+  width: 210px;
+  padding: 10px;
+  margin-bottom: 10px;
+  background-color: #813fb89c;
+  color: #fafafa; 
+  font-size: 15px; 
 }
 
 .app-action:disabled{
