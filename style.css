@@ -106,7 +106,7 @@ body{
 }
 
 .app-body{
-  margin: 50px  20px;
+  margin: 50px  ;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -124,7 +124,9 @@ body{
 }
 
 
-
+.app-menu{
+  margin: 0 35px 0 15px;
+}
 
 
 
@@ -148,7 +150,25 @@ background: rgba(131, 8, 231, 0.08);
   background: rgba(123, 121, 255, 0.2);
 }
 
+.marker{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
 
+.marker-column{
+  top: -35px;
+}
+
+.marker-row{
+  left: -35px;
+}
 
 
 
