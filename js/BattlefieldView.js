@@ -18,8 +18,25 @@ class BattlefieldView extends Battlefield {
         const polygon = document.createElement("div");
         polygon.classList.add("battlefield-polygon");
 
-        Object.assign(this,{root, table, dock, polygon})
-        root.append(table, dock, polygon)
+        Object.assign(this,{root, table, dock, polygon});
+        root.append(table, dock, polygon);
+
+
+        for(let y = 0; y < 10; y++){
+            const tr = document.createElement("tr");
+            tr.classList.add("battlefield-row");
+            tr.dataset.y = y;
+
+            for(let x = 0; x < 10; x++){
+                const td = document.createElement("td");
+                td.classList.add("battlefield-item");
+                Object.assign(td.dataset,{x, y});
+
+                tr.append(td)
+
+            }
+            table.append(tr)
+        }
 
     }
 

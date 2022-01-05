@@ -90,26 +90,26 @@
 
 /*конец обнуления*/
 body{
-    font-family: 'Luxurious Roman', cursive;
-    background-color: rgba(85, 16, 112,0.2);
+  font-family: 'Luxurious Roman', cursive;
+  background-color: rgba(85, 16, 112,0.2);
 }
 
 .app{
-    min-width: 100%;
-    margin: 0 auto;
+  min-width: 100%;
+  margin: 0 auto;
 
 }
 
 .app-header{
-    text-align: center;
-    margin: 30px;
+  text-align: center;
+  margin: 30px;
 }
 
 .app-body{
-    margin: 50px 20px;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+  margin: 50px  20px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
 
 .app-title{
@@ -119,17 +119,50 @@ body{
 }
 
 .app-subtitle{
-    font-size: 18px;
-    color: rgba(85, 16, 112,0.8);
+  font-size: 18px;
+  color: rgba(85, 16, 112,0.8);
 }
 
 
 
+
+
+
+.battlefield{
+  position: relative;
+}
+.battlefield-table {
+border-collapse: collapse;
+border-spacing: 0;
+background: rgba(131, 8, 231, 0.08);
+}
+
+.battlefield-item{
+  position: relative;
+  width: 32px;
+  height: 32px;
+  border: 1px solid rgba(0, 0, 0, 0.5);
+}
+
+.battlefield-item__active{
+  background: rgba(123, 121, 255, 0.2);
+}
+
+
+
+
+
+
+
+
+
+
+
 .app-actions{
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 .app-action {
 
@@ -143,7 +176,7 @@ body{
 }
 
 .app-action:disabled{
-    background-color: #9c69c562;
+  background-color: #9c69c562;
 }
 
 
