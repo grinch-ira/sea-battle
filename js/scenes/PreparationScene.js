@@ -13,6 +13,10 @@ const shipDatas = [
 
 class PreparationScene extends Scene {
     draggedShip = null;
+    draggedOffsetX = 0;
+    draggedOffsetY = 0;
+    
+
     init(){
         const {player} = this.app;
         for(const {size, direction, startX, startY} of shipDatas){
@@ -28,23 +32,38 @@ class PreparationScene extends Scene {
 
     update(){
         const {mouse, player} = this.app;
+
         if(!this.draggedShip && mouse.left && !mouse.pLeft){
-            const ship = player.ships.find(ship => ship.isUnder(mouse));
+            const ship = player.ships.find((ship) => ship.isUnder(mouse));
             if(ship){
+                const shipRectangle = ship.div.getBoundingClientRect();
                 this.draggedShip = ship;
+                this.draggedOffsetX = mouse.x - shipRectangle.left;
+                this.draggedOffsetY = mouse.y - shipRectangle.top;
+
+                ship.x = null;
+                ship.y = null;
+
+
             }
         }
-
+        //перетаскивание корябля
         if(mouse.left && this.draggedShip){
             const{left, top} = player.root.getBoundingClientRect();
-            this.draggedShip.div.style.left = `${mouse.x - left}px`
-            this.draggedShip.div.style.top = `${mouse.y - top}px`
-        }
 
+            this.draggedShip.div.style.left = `${mouse.x - left - this.draggedOffsetX}px`;
+            this.draggedShip.div.style.top = `${mouse.y - top - this.draggedOffsetY}px`;
+        }
+        //бросание корабля
         if(!mouse.left && this.draggedShip){
-            this.draggedShip = null;
-
+			const ship = this.draggedShip;
+			this.draggedShip = null;
         }
+
+        //Вращание
+		if (this.draggedShip && mouse.delta ) {
+			this.draggedShip.toggleDirection();
+		}
     }
 
     stop(){
