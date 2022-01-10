@@ -132,6 +132,11 @@ body{
 
 .battlefield{
   position: relative;
+
+}
+
+.battlefield-row{
+  width: 320px;
 }
 .battlefield-table {
 border-collapse: collapse;
@@ -141,7 +146,7 @@ background: rgba(131, 8, 231, 0.08);
 
 .battlefield-item{
   position: relative;
-  width: 32px;
+  min-width: 32px;
   height: 32px;
   border: 1px solid rgba(0, 0, 0, 0.5);
 }
@@ -241,11 +246,18 @@ background: rgba(131, 8, 231, 0.08);
   font-size: 15px; 
 }
 
+
+
 .app-action:disabled{
   background-color: #9c69c562;
 }
 
-
+.app-action:hover{
+  background-color: #3901667c;
+}
+.app-action:active{
+  background-color: #390166b9;
+}
 
 .hidden {
 	display: none;
