@@ -1,7 +1,5 @@
-
 const app = new Application({
-    preparation:PreparationScene,
+	preparation: PreparationScene,
 });
 
-app.start("preparation")
-
+app.start("preparation");

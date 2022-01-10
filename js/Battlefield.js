@@ -38,7 +38,7 @@ class Battlefield {
         const shots = this.shots.slice();
 
         for(const shot of shots){
-            this.removeShip(shot)
+            this.removeShot(shot)
         }
 
         return shots.length

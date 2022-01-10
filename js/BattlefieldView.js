@@ -7,7 +7,7 @@ class BattlefieldView extends Battlefield {
     cells = [];
 
     constructor(){
-        super()
+        super();
         const root = document.createElement("div");
         root.classList.add("battlefield");
 

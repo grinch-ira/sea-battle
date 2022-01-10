@@ -5,11 +5,12 @@ class Application {
     activeScene = null;
 
     scenes = {}
-    constructor(scenes){
+
+    constructor(scenes = {}){
         const mouse = new Mouse(document.body)
         const player = new BattlefieldView()
         const opponent = new BattlefieldView()
-        Object.assign(this, {player, opponent, mouse});
+        Object.assign(this, {mouse, player, opponent});
 
         document.querySelector('[data-side = "player"]').append(player.root);
         document.querySelector('[data-side = "opponent"]').append(opponent.root);
@@ -29,6 +30,7 @@ class Application {
         if(this.activeScene){
             this.activeScene.update()
         }
+        this.mouse.tick();
     }
 
     start(sceneName){

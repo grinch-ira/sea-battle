@@ -24,7 +24,7 @@ class Mouse {
             this.y = e.clientY;
             this.delta = 0;
             this.under = true;
-        }
+        };
 
         element.addEventListener("mousemove", (e) => {
             this.tick();
@@ -62,7 +62,7 @@ class Mouse {
 
         element.addEventListener("wheel", (e) => {
             this.tick()
-            e.which ==2;
+            //e.which ==2;
 
             this.x = e.clientX;
             this.y = e.clientY;
