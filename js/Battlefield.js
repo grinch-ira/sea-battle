@@ -61,6 +61,18 @@ class Battlefield {
         return this.#matrix
     }
 
+    get complete(){
+        if(this.ships.length!==10){
+            return false
+        }
+        for(let ship of this.ships){
+            if(!ship.placed){
+                return false
+            }
+        }
+        return true
+    }
+
     inField(x, y){
 
         const isNumber = (n) => 
