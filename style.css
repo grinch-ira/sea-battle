@@ -152,7 +152,7 @@ background: rgba(131, 8, 231, 0.08);
 }
 
 .battlefield-item__active{
-  background: rgba(123, 121, 255, 0.2);
+  background: rgba(118, 35, 185, 0.6);
 }
 
 .marker{
@@ -246,7 +246,56 @@ background: rgba(131, 8, 231, 0.08);
   font-size: 15px; 
 }
 
+.shot {
 
+	width: 32px;
+	height: 32px;
+	text-align: center;
+	display: flex;
+	position: absolute;
+	flex-direction: column;
+	justify-content: center;
+}
+
+.shot-missed {
+	/* color: gray; */
+	color: "black";
+}
+
+.shot-wounded {
+	background: #dd5330ad;
+	z-index: 1;
+}
+
+.shot-wounded::after {
+	content: " ";
+	width: calc(32px * 1.3);
+	height: calc(32px * 1.3);
+	border-top: 2px solid rgb(177, 59, 4 );
+	position: absolute;
+	z-index: -1;
+	transform: rotate(45deg);
+	top: 9px;
+	left: -20px;
+}
+
+.shot-wounded::before {
+	content: " ";
+	width: calc(32px * 1.3);
+	height: calc(32px * 1.3);
+	border-top: 2px solid rgb(177, 59, 4);
+	position: absolute;
+	z-index: -1;
+	transform: rotate(-45deg);
+	top: 9px;
+	left: 9px;
+}
+
+.shot-killed {
+	margin: -1px;
+	border: 1px solid rgb(207, 0, 0);
+
+}
 
 .app-action:disabled{
   background-color: #9c69c562;
@@ -262,6 +311,8 @@ background: rgba(131, 8, 231, 0.08);
 .hidden {
 	display: none;
 }
+
+
 
 .app-chat {
 }

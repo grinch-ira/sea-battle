@@ -21,6 +21,9 @@ class Battlefield {
                     y,
                     ship:null,
                     free: true,
+                    shoted:false,
+                    wounded: false,
+
                 };
 
                 row.push(item)
@@ -52,6 +55,15 @@ class Battlefield {
                         item.free = false;
                     }
                 }
+            }
+        }
+
+        for(const {x, y} of this.shots){
+            const item = matrix[y][x];
+            item.shoted = true;
+
+            if(item.ship){
+                item.wounded = true;
             }
         }
 
@@ -151,8 +163,50 @@ class Battlefield {
     }
 
 
-    addShot(){
+    addShot(shot){
+
+        for(const {x, y} of this.shots){
+            if(x === shot.x && y === shot.y){
+                return false
+            }
+        }
+
+        this.shots.push(shot);
         this.#changed = true;
+
+        const matrix = this.matrix;
+        const {x, y} = shot;
+
+        if(matrix[y][x].ship){
+            shot.setVariant("wounded");
+
+            const {ship} = matrix[y][x];
+            const dx = ship.direction === "row";
+            const dy = ship.direction === "column";
+
+            let killed = true;
+
+            for(let i = 0; i < ship.size; i++){
+                const cx = ship.x + dx * i;
+                const cy = ship.y + dy * i;
+                const item = matrix[cy][cx];
+
+                if(!item.wounded){
+                    killed = false;
+                    break;
+                }
+
+            }
+
+            if(killed){
+                ship.killed = true;
+                shot.setVariant("killed");
+
+            }
+        }
+
+
+        return true;
     }
 
     removeShot(){

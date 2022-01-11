@@ -31,7 +31,7 @@ class PreparationScene extends Scene {
 
     start(){
         this.removeEventListeners = [];
-        
+
         document.querySelectorAll(".app-actions").
         forEach(element => element.classList.add("hidden"));
 
@@ -176,7 +176,6 @@ class PreparationScene extends Scene {
 
 
     startComputer(level){
-        console.log(level)
         this.app.start("computer")
     }
 
