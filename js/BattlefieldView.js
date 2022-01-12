@@ -3,10 +3,11 @@ class BattlefieldView extends Battlefield {
     table = null;
     dock = null;
     polygon = null;
+    showShips = true;
 
     cells = [];
 
-    constructor(){
+    constructor(showShips = true){
         super();
         const root = document.createElement("div");
         root.classList.add("battlefield");
@@ -20,7 +21,7 @@ class BattlefieldView extends Battlefield {
         const polygon = document.createElement("div");
         polygon.classList.add("battlefield-polygon");
 
-        Object.assign(this,{root, table, dock, polygon});
+        Object.assign(this,{root, table, dock, polygon, showShips});
         root.append(table, dock, polygon);
 
 
@@ -64,6 +65,8 @@ class BattlefieldView extends Battlefield {
 			return false;
 		}
 
+        if(this.showShips){
+
 		this.dock.append(ship.div);
 
 		if (ship.placed) {
@@ -78,6 +81,7 @@ class BattlefieldView extends Battlefield {
 			ship.div.style.left = `${ship.startX}px`;
 			ship.div.style.top = `${ship.startY}px`;
 		}
+    }
 
 		return true;
 	}
@@ -113,5 +117,17 @@ class BattlefieldView extends Battlefield {
         shot.div.style.top = `${cellRect.top - rootRect.top}px `
             return true
         
+    }
+
+    removeShot(shot){
+        if(!super.removeShot(shot)){
+            return false;
+        }
+
+        if(Array.prototype.includes.call(this.polygon.children, shot.div)){
+
+            shot.div.remove()
+        }
+        return true
     }
 }
