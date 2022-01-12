@@ -1,0 +1,343 @@
+@import url('https://fonts.googleapis.com/css2?family=Luxurious+Roman&display=swap');
+
+/*Обнуление*/
+* {
+    padding: 0;
+    margin: 0;
+    border: 0;
+  }
+  *,
+  *:before,
+  *:after {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+  }
+  
+  :focus,
+  :active {
+    outline: none;
+  }
+  a:focus,
+  a:active {
+    outline: none;
+  }
+  nav,
+  footer,
+  header,
+  aside {
+    display: block;
+  }
+  html,
+  body {
+    height: 100%;
+    width: 100%;
+    font-size: 100%;
+    line-height: 1;
+    font-size: 14px;
+    -ms-text-size-adjust: 100%;
+    -moz-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+  }
+  
+  input,
+  button,
+  textarea {
+    font-family: inherit;
+  }
+  input::-ms-clear {
+    display: none;
+  }
+  button {
+    cursor: pointer;
+  }
+  button::-moz-focus-inner {
+    padding: 0;
+    border: 0;
+  }
+  a,
+  a:visited {
+    text-decoration: none;
+  }
+  a:hover {
+    text-decoration: none;
+  }
+  ul li {
+    list-style: none;
+  }
+  img {
+    vertical-align: top;
+  }
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-size: inherit;
+    font-weight: 400;
+  }
+  
+  body {
+    height: 100%;
+    line-height: 1;
+    font-size: 14px;
+    color: #252b42;
+    font-family: Montserrat;
+    font-weight: 500;
+    background: #fafafa;
+}
+
+/*конец обнуления*/
+body{
+
+  font-family: 'Luxurious Roman', cursive;
+  background-color: rgba(85, 16, 112,0.2);
+}
+
+.app{
+  min-width: 100%;
+  margin: 0 auto;
+
+}
+
+.app-header{
+  text-align: center;
+  margin: 30px;
+}
+
+.app-body{
+  max-width: 60%;
+  margin: 50px auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.app-title{
+    color:#380166;
+    font-size: 30px;
+
+}
+
+.app-subtitle{
+  font-size: 18px;
+  color: rgba(85, 16, 112,0.8);
+}
+
+
+.app-menu{
+   margin: 0 35px 0 15px; 
+}
+
+
+
+.battlefield{
+  position: relative;
+
+}
+
+.battlefield-row{
+  width: 320px;
+}
+.battlefield-table {
+border-collapse: collapse;
+border-spacing: 0;
+background: rgba(131, 8, 231, 0.08);
+}
+
+.battlefield-item{
+  position: relative;
+  min-width: 32px;
+  height: 32px;
+  border: 1px solid rgba(0, 0, 0, 0.5);
+}
+
+.battlefield-item__active{
+  background: rgba(118, 35, 185, 0.6);
+}
+
+.battlefield-status{
+  font-size: 20px;
+  margin: 0 auto;
+}
+
+.marker{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
+
+.marker-column{
+  top: -35px;
+}
+
+.marker-row{
+  left: -35px;
+}
+
+
+
+
+.ship {
+	position: absolute;
+	top: 0;
+	left: 0;
+	/* margin: -3px; */
+	border: 3px solid #000000;
+	background: rgba(2, 4, 12, 0.45);
+	width: 32px;
+	height: 32px;
+}
+
+.ship-row-1 {
+}
+
+.ship-row-2 {
+	width: 65px;
+}
+
+.ship-row-3 {
+	width: 98px;
+}
+
+.ship-row-4 {
+	width: 131px;
+}
+
+.ship-column-1 {
+}
+
+.ship-column-2 {
+	height: 65px;
+}
+
+.ship-column-3 {
+	height: 98px;
+}
+
+.ship-column-4{
+  height: 131px;
+}
+
+
+
+
+
+
+
+
+
+
+
+.app-actions{
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.app-action {
+
+  border-radius: 10px;
+  width: 210px;
+  padding: 10px;
+  margin-bottom: 10px;
+  background-color: #813fb89c;
+  color: #fafafa; 
+  font-size: 15px; 
+}
+
+.shot {
+
+	width: 32px;
+	height: 32px;
+	text-align: center;
+	display: flex;
+	position: absolute;
+	flex-direction: column;
+	justify-content: center;
+}
+
+.shot-missed {
+	/* color: gray; */
+	color: "black";
+}
+
+.shot-wounded {
+	background: #fbdede;
+	z-index: 1;
+}
+
+.shot-wounded::after {
+	content: " ";
+	width: calc(32px * 1.3);
+	height: calc(32px * 1.3);
+	border-top: 2px solid red;
+	position: absolute;
+	z-index: -1;
+	transform: rotate(45deg);
+	top: 7px;
+	left: -20px;
+}
+
+.shot-wounded::before {
+	content: " ";
+	width: calc(32px * 1.3);
+	height: calc(32px * 1.3);
+	border-top: 2px solid red;
+	position: absolute;
+	z-index: -1;
+	transform: rotate(-45deg);
+	top: 8px;
+	left: 8px;
+}
+
+.shot-killed {
+  /* background-color: #b65656c5;*/
+	margin: 0px;
+	border: 3px solid rgb(255, 0, 0);
+
+}
+
+.app-action:disabled{
+  background-color: #9c69c562;
+}
+
+.app-action:hover{
+  background-color: #3901667c;
+}
+.app-action:active{
+  background-color: #390166b9;
+}
+
+.hidden {
+	display: none;
+}
+
+
+
+.app-chat {
+}
+
+.app-chatinput {
+	width: 100%;
+	height: 35px;
+	font-size: 25px;
+	text-align: left;
+}
+
+.app-messages {
+}
+
+.app-message {
+	text-align: left;
+	color: #3c3c3c;
+	font-size: 16px;
+	margin-top: 10px;
+}
