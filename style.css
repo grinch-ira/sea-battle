@@ -107,8 +107,8 @@ body{
 }
 
 .app-body{
-  max-width: 800px;
-  margin: 50px;
+  max-width: 60%;
+  margin: 50px auto;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
